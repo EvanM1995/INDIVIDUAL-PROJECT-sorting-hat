@@ -35,10 +35,15 @@ const students = [
     name: "Ginger Guy",
     imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTvpBMm3MALwvf85QZjCINUmT8qh4n2YZ7i8LpSnkLXC_CVpK1pmTetOPjYrE9sYzy3IQ&usqp=CAU",
     house: "slytherin",
-  },
+  }
 
 ]; 
 
+
+
+const app = document.querySelector("#app")
+
+console.log(students)
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender;
@@ -98,8 +103,29 @@ ravBtn.addEventListener('click', () => {
 });
 
 slyBtn.addEventListener('click', () => {
-  const slytherin = filter(students, 'syltherin');
+  const slytherin = filter(students, 'slytherin');
   cardsOnDom(slytherin);
 });
 
-startApp();
+const form = document.querySelector('form');
+
+const createStudent = (e) => {
+  e.preventDefault();
+
+const houses = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
+
+const newStudentObj = {
+  id: students.length + 1,
+  name: document.querySelector("#name").value,
+  house: houses[Math.floor(Math.random() * houses.length)],
+  imageUrl: document.querySelector("#imageUrl").value,
+
+}
+
+students.push(newStudentObj);
+cardsOnDom(students);
+form.reset();
+
+}
+
+form.addEventListener('submit', createStudent);

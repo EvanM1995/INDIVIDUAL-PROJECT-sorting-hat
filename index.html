@@ -10,17 +10,40 @@
 <link rel="stylesheet" href="main.css">
 <body>
   <div id="app"></div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-  <script src="main.js"></script>
+  
+  <form>
+    <div class="form-floating mb-sm-0">
+      <input type="text" class="form-control" id="name" placeholder="name" required> 
+      <label for="floatingInput">Name</label>
+    </div>
+
+    <div class="form-floating mb-sm-0">
+      <input type="text" class="form-control" id="imageUrl" required>
+      <label for="floatingInput">Image</label>
+    </div>
+
+    <!-- <div class="form-floating mb-sm-0"> -->
+      <!-- <input type="text" class="form-control" id="house" placeholder="house" -->
+      <!-- required> -->
+      <!-- <label for="floatingInput">house</label> -->
+    <!-- </div> -->
+
+    <button type="submit" class="btn btn-dark" id="form-submit">Submit</button>
+  </form>
 
   <div class = "buttons">
-    <button type="showall" class="btn btn-secondary btn-lg">All</button>
-    <button type="gryfbtn" class="btn btn-secondary btn-lg">Gryffindor</button>
-    <button type="huffbtn" class="btn btn-secondary btn-lg">Hufflepuff</button>
-    <button type="ravbtn" class="btn btn-secondary btn-lg">Ravenclaw</button>
-    <button type="slybtn" class="btn btn-secondary btn-lg">Slytherin</button>
+    <button id="showall" type="button" class="btn btn-secondary btn-lg">All</button>
+
+    <button id="gryfbtn" type="button" class = "btn btn-secondary btn-lg">Gryffindor</button>
+
+    <button id="huffbtn" type="button" class="btn btn-secondary btn-lg">Hufflepuff</button>
+
+    <button id="ravbtn" type="button" class="btn btn-secondary btn-lg">Ravenclaw</button>
+
+    <button id="slybtn" type="button" class="btn btn-secondary btn-lg">Slytherin</button>
   </div>
-  
-  
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>  
+<script src="main.js"></script>
 </body>
 </html>
