@@ -38,3 +38,18 @@ body {
 .cards-container {
   border: 3px; 
 }
+
+.buttons {
+  display: flex;
+  position: absolute;
+  top: 900px;
+  left: 300px;
+}
+
+.studentform {
+  display: flex;
+  position: absolute;
+  top: 1000px;
+  left: 470px;
+
+} 
