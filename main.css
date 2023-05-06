@@ -2,19 +2,39 @@ body {
   background-color: blanchedalmond;
 }
 
-#app {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
+
 
 .card {
   font-family: fantasy;
-  margin: 10px;
+  height: 100%;
+  margin: 1px;
 }
 
 .card-img-top {
   width: 100%;
-  height: 25vw;
-  object-fit: cover;
+  height: 10vw;
+  object-fit: contain;
+}
+
+#firstyear {
+  display: flex;
+  flex-flow: row wrap;
+  border: 1px;
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+
+#voldarmy {
+  display: flex;
+  flex-flow: row wrap;
+  border: 1px;
+  float: right;
+  height: 100%;
+  width: 50%
+
+}
+
+.cards-container {
+  border: 3px; 
 }

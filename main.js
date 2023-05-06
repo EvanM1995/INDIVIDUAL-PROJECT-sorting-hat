@@ -18,27 +18,19 @@ const students = [
 
   {
     id: 3,
-    name: "Luke Skywalker",
-    imageUrl: "https://lumiere-a.akamaihd.net/v1/images/open-uri20150608-27674-1ymefwb_483d5487.jpeg?region=0%2C0%2C1200%2C675",
-    house: "slytherin",
-  },
-
-  {
-    id: 4,
     name: "Hermoine Granger",
     imageUrl: "https://ichef.bbci.co.uk/news/640/cpsprodpb/3CDC/production/_94908551_minnieharrogatemildredhubble.jpg",
     house: "hufflepuff",
   },
 
   {
-    id: 5,
+    id: 4,
     name: "Ginger Guy",
     imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTvpBMm3MALwvf85QZjCINUmT8qh4n2YZ7i8LpSnkLXC_CVpK1pmTetOPjYrE9sYzy3IQ&usqp=CAU",
     house: "slytherin",
   }
 
 ]; 
-
 
 
 const app = document.querySelector("#app")
@@ -52,19 +44,36 @@ const renderToDom = (divId, htmlToRender) => {
 const cardsOnDom = (array) => {
   let domString = "";
   for (const student of array) {
-    domString += `<div class="card" style="width: 18rem;">
-  <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
-  <div class="card-body">
+    domString += `<div class="card" id="${student.name}" style="width: 18rem;">
+    <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
+    <div class="card-body">
     <p class="card-text">${student.name}</p>
     <p>House: ${student.house}</p>
-  </div>
-</div>`;
-};
-
-console.log("domString")
-renderToDom("#app", domString);
+    <button class="btn btn-danger" id="delete--${student.id}">Expel</button>
+    </div>
+    </div>`;
+  };
+  
+  console.log("domString")
+  renderToDom("#firstyear", domString);
 };
 cardsOnDom(students)
+
+// create function
+// listens for click event
+// on click remove student.name element and append to container 2
+// const expelBtn = document.querySelector('#expel');
+// const firstYear = document.querySelector('#firstyear');
+// expelBtn.addEventListener('click', (e) => {
+//   console.log('>>> e.target.id >>> ', e.target.id);
+//   const element = document.getElementById("#students");
+//   element.remove();
+// })
+
+
+
+
+
 
 const filter = (array, studenthouse) => {
   const studentArray = [];
@@ -107,6 +116,8 @@ slyBtn.addEventListener('click', () => {
   cardsOnDom(slytherin);
 });
 
+
+
 const form = document.querySelector('form');
 
 const createStudent = (e) => {
@@ -129,3 +140,17 @@ form.reset();
 }
 
 form.addEventListener('submit', createStudent);
+
+
+app.addEventListener('click', (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+    const index = students.findIndex(e => e.id === Number(id));
+    students.splice(index, 1);
+    cardsOnDom(students);
+  }
+});
+
+const startApp = () => {
+  cardsOnDom(students);
+}
