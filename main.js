@@ -154,3 +154,5 @@ app.addEventListener('click', (e) => {
 const startApp = () => {
   cardsOnDom(students);
 }
+
+startApp();
